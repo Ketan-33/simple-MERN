@@ -4,6 +4,11 @@ const authRouter = require('./routes/auth');
 
 app.use(express.json());
 app.use('/api/auth', authRouter);
+const contentRouter = require('./routes/Content');
+
+app.use(express.json());
+app.use('/api/content', contentRouter);
+
 
 app.get('/', (req, res) => {
     res.send('Server is running!');
