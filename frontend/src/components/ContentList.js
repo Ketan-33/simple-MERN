@@ -1,14 +1,29 @@
 // ContentList.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchContentList } from '../api';
 
 const ContentList = () => {
+    const [contentList, setContentList] = useState([]);
+
+    useEffect(() => {
+        const getContentList = async () => {
+            try {
+                const data = await fetchContentList();
+                setContentList(data);
+            } catch (error) {
+                // Handle error
+            }
+        };
+        getContentList();
+    }, []);
+
     return (
         <div>
             <h2>Content List</h2>
             <ul>
-                <li>Content Item 1</li>
-                <li>Content Item 2</li>
-                <li>Content Item 3</li>
+                {contentList.map(content => (
+                    <li key={content._id}>{content.title}</li>
+                ))}
             </ul>
         </div>
     );
