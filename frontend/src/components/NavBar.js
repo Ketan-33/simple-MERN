@@ -14,9 +14,22 @@ export const NavBar = () => {
                     <Button
                         style={{ color: "white", textTransform: "none" }}
                         startIcon={<BookIcon />}
-                        onClick={() => navigate(APP_ROUTE.BLOG_LIST)}
+                        onClick={() => navigate(APP_ROUTE.HOME_PAGE)}
                     >
                         <Typography variant="h6">Blogging App</Typography>
+                    </Button>
+                    <Box sx={{ flexGrow: 1 }} />
+                    <Button
+                        style={{ color: "white", textTransform: "none" }}
+                        onClick={() => navigate(APP_ROUTE.LOGIN)}
+                    >
+                        Login
+                    </Button>
+                    <Button
+                        style={{ color: "white", textTransform: "none" }}
+                        onClick={() => navigate(APP_ROUTE.REGISTER)}
+                    >
+                        Register
                     </Button>
                 </Toolbar>
             </AppBar>

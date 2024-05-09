@@ -1,10 +1,14 @@
 require("dotenv").config();
+const cors = require('cors');
 const path = require("path");
 const express = require("express");
 const { connectDb } = require("./db/connectDb");
 const blogPostRoute = require("./routes/blogPost.routes");
 const app = express();
 const PORT = 9001;
+
+// Allow requests from frontend domain
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
